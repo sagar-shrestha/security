@@ -18,6 +18,7 @@ public class ApplicationController {
 
     private final BCryptPasswordEncoder passwordEncoder;
 
+
     @PostMapping("/add")
     public String addUserByAdmin(@RequestBody User user) {
         String password = user.getPassword();
