@@ -10,11 +10,11 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
+//@NoArgsConstructor
 public class User {
 
     @Id
-    @GeneratedValue
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
     private String username;
     private String password;

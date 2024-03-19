@@ -3,38 +3,32 @@ package com.spring.security.config;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
-@SuppressWarnings("deprecation")
+//@SuppressWarnings("deprecation")
 @Configuration
 @RequiredArgsConstructor
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UserDetailsService userDetailsService;
+      //  private final UserDetailsService userDetailsService;
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("sagar")
-//                .password("sagar")
-//                .roles("ADMIN");
-        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
-    }
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+////        auth.inMemoryAuthentication()
+////                .withUser("sagar")
+////                .password("sagar")
+////                .roles("ADMIN");
+//        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -44,20 +38,31 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .fullyAuthenticated()
 //                .and()
 //                .httpBasic();
-        http.authorizeRequests()
-                .antMatchers("/ru/**")
-                .authenticated()
-                .anyRequest()
-                .permitAll()
-                .and()
-                .authorizeRequests()
-                .antMatchers("/api/**")
-                .authenticated()
-                .anyRequest()
-                .hasAnyRole("ADMIN")
-                .and()
-                .formLogin()
-                .permitAll();
+//        http.authorizeRequests()
+//                .antMatchers("/ru/**")
+//                .authenticated()
+//                .anyRequest()
+//                .permitAll()
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/api/**")
+//                .authenticated()
+//                .anyRequest()
+//                .hasAnyRole("ADMIN")
+//                .and()
+//                .formLogin()
+//                .permitAll();
+
+//        http.authorizeRequests()
+//                .antMatchers("/ru/**")
+//                .authenticated()
+//                .antMatchers("/api/**")
+//                .hasAnyRole("ADMIN")
+//                .anyRequest()
+//                .permitAll()
+//                .and()
+//                .formLogin()
+//                .permitAll();
     }
 
 //    @Bean
