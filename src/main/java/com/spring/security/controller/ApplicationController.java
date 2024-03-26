@@ -3,6 +3,7 @@ package com.spring.security.controller;
 import com.spring.security.model.User;
 import com.spring.security.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,9 +17,7 @@ public class ApplicationController {
     private final BCryptPasswordEncoder passwordEncoder;
 
 
-
-
-   // @PreAuthorize("hasAnyRole('ADMIN')")
+   // @PreAuthorize("hasAnyRole('SUPER_ADMIN')")
     @PostMapping("/add")
     public String addUserByAdmin(@RequestBody User user) {
         String password = user.getPassword();
