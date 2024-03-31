@@ -27,6 +27,7 @@ public class ApplicationController {
         return "Hello Text";
     }
 
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN')")
     @GetMapping("/get")
     public String get(){
         return "hello";
